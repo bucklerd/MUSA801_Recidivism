@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Guilford County Recidivism Prediction Project</title>
+  </head>
+
+  <body>
+    <div id="header">
+      <h2 class = "center h1"> Guilford County: Recidivism Prediction </h2>
+    </div>
+    <div id="inmateTable">
+      <div class="container-fluid">
+        <div style="padding: .5rem 0px">
+          <form id="controlPanel">
+            <div class="form-row">
+              <div class="form-group col-lg-5">
+                <label for="startDate">Review Start Date</label>
+                <input type="date" class="form-control" id="startDate" aria-describedby="startDate" value="2019-05-01">
+              </div>
+              <div class="form-group col-lg-5">
+                <label for="endDate">Review End Date</label>
+                <input type="date" class="form-control" id="endDate" aria-describedby="endDate" value="2019-12-31">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-lg-5">
+                <label for="minScore">Min Risk Score</label>
+                <input type="number" class="form-control" id="minScore" aria-describedby="minScore" value="0.00" min=0 max=1 step = 0.05 >
+              </div>
+              <div class="form-group col-lg-5">
+                <label for="maxScore">Max Risk Score</label>
+                <input type="number" class="form-control" id="maxScore" aria-describedby="maxScore" value="1.00" min=0 max=1 step = 0.05>
+              </div>
+              <input type="button" id="updateTable" class="btn btn-secondary btn-sm" value="Update" style="margin:.25rem;  height=1.5rem">
+            </div>
+          </form>
+        </div>
+
+        <table id="exOffenderTable" class="display compact" style="width:100%">
+              <thead>
+                <tr>
+                  <th scope="col">UID </th>
+                  <th scope="col">Name </th>
+                  <th scope="col">Risk Score </th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+
+        </table>
+        <p style="font-size:.75rem; padding: 0.2rem 1.5rem"> <strong>Names are fabricated for demonstration purposes.
+          Any similarity to real-world individuals is purely coincidental.</strong></p>
+          </div>
+        </div>
+
+    <div id="inmateDetails">
+      <div class="container-fluid" style="height: inherit; position:relative">
+        <h4 style="display: inline">Ex-offender Profile</h4>
+        <button type="button" id="dtlClose" class="close" aria-label="Close" onclick="$('#inmateDtls').hide(); $('#dtlClose').hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <form id="inmateDtls">
+          <div class="form-row">
+            <!-- <h6>Demographics</h6> -->
+<!-- 1 Name -->
+            <div class="form-group exoProfile col-lg-4">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="">
+            </div>
+<!-- 2 Release Date -->
+            <div class="form-group exoProfile col-lg-4">
+              <label for="releaseDate">Scheduled Release </label>
+              <input type="date" class="form-control" id="releaseDate" aria-describedby="releaseDate" placeholder="">
+            </div>
+
+<!-- 3 Race -->
+            <div class="form-group exoProfile col-lg-4">
+              <label for="race">Race</label>
+              <input type="text" class="form-control" id="race" aria-describedby="race" placeholder="">
+            </div>
+<!-- 4 Ethnicity -->
+            <div class="form-group exoProfile col-lg-4">
+              <label for="ethnicity">Ethnicity</label>
+              <input type="text" class="form-control" id="ethnicity" aria-describedby="ethnicity" placeholder="">
+            </div>
+<!-- 5 Sex -->
+            <div class="form-group exoProfile col-lg-4">
+              <label for="sex">Sex</label>
+              <input type="text" class="form-control" id="sex" aria-describedby="sex" placeholder="">
+            </div>
+
+
+<!-- 6 Age -->
+            <div class="form-group exoProfile col-lg-4">
+              <label for="age">Age</label>
+              <input type="text" class="form-control" id="age" aria-describedby="age" placeholder="">
+            </div>
+          </div>
+<!-- 7 Current Offense -->
+
+          <div class="form-row">
+            <!-- <h6> Current Crime Characteristics</h6> -->
+            <div class="form-group exoProfile col-lg-4">
+              <label for="mostSeriousCurrentOffense">Most Serious Offense</label>
+              <input type="text" class="form-control" id="mostSeriousCurrentOffense" aria-describedby="mostSeriousCurrentOffense" placeholder="">
+            </div>
+<!-- 8 Felony Charges -->
+            <div class="form-group exoProfile col-lg-4">
+              <label for="Cnt_Felony_Tot">Felony Charges</label>
+              <input type="text" class="form-control" id="Cnt_Felony_Tot" aria-describedby="Cnt_Felony_Tot" placeholder="">
+            </div>
+          </div>
+
+
+          <div class="form-row">
+            <!-- <h6> Prior Crime</h6> -->
+<!-- 9 Total Sentences -->
+            <div class="form-group exoProfile col-lg-4">
+              <label for="totalSentenceCount">Total Sentence Count</label>
+              <input type="text" class="form-control" id="totalSentenceCount" aria-describedby="totalSentenceCount" placeholder="">
+            </div>
+
+
+<!-- 10 Juvenile Record -->
+            <div class="form-group exoProfile col-lg-4">
+              <label for="juvnileOffensesFlag">Juvenile Arrests</label>
+              <input type="text" class="form-control" id="juvnileOffensesFlag" aria-describedby="juvnileOffensesFlag" placeholder="">
+            </div>
+
+
+<!-- 11 Count of all Incarcerations -->
+
+              <!-- <h6> Prior Crime Characteristics</h6> -->
+              <!-- <div class="form-group exoProfile col-lg-4">
+                <label for="priorCount">Count of Prior Offenses</label>
+                <input type="text" class="form-control" id="priorCount" aria-describedby="priorCount" placeholder="">
+              </div> -->
+            </div>
+
+
+<!-- 12 Days in prison -->
+            <div class="form-row">
+              <!-- <h6>In Prison Activities</h6> -->
+              <div class="form-group exoProfile col-lg-4">
+                <label for="days_served_in_doc_custody">Length of Incarceration</label>
+                <input type="text" class="form-control" id="days_served_in_doc_custody" aria-describedby="days_served_in_doc_custody" placeholder="">
+              </div>
+
+
+<!-- 13 Dsiciplinary Infractions -->
+            <div class="form-group exoProfile col-lg-4">
+              <label for="totalDisciplineInfractions">Disciplinary Count</label>
+              <input type="text" class="form-control" id="totalDisciplineInfractions" aria-describedby="totalDisciplineInfractions" placeholder="">
+            </div>
+
+
+
+<!-- 14 Latest Infraction Record -->
+            <!-- <div class="form-group exoProfile col-lg-4">
+              <label for="latestInfract">Latest Disciplinary Infraction</label>
+              <input type="text" class="form-control" id="latestInfract" aria-describedby="latestInfract" placeholder="">
+            </div> -->
+
+
+          </div>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+
+
+    <div id="selectedTrack" class="container-fluid">
+      <div class="row">
+        <div class="col-lg-5 text-center" style:"height: inherit">
+          <h5 style="margin: 0 0">Placements</h5>
+          <table id="selectedTable" class="display compact" style="width:100%">
+                <thead>
+                  <tr>
+                    <th scope="col">Name </th>
+                    <th scope="col">Risk</th>
+                  </tr>
+                </thead>
+
+          </table>
+        </div>
+
+
+        <div class="col-lg-6 " id="totals">
+          <form class="form-inline" style="float:right; margin-top:.75rem">
+            <div class="form-group mb-2">
+            <label for="toSpend" class='col-7 text-right tLab'>Available Funds</label>
+            <input type="text" class="form-control col-4" id="toSpend" aria-describedby="toSpend" placeholder="0" readonly style="height:2rem">
+            </div>
+
+
+            <div class="form-group mb-2">
+            <label for="budget" class="col-7 text-right tLab">Budget</label>
+            <input type="number" class="form-control col-4" id="budget" aria-describedby="budget" value="0" min=0 step="1000" style="height: 2rem" onchange="bdgt=$(this).val(); statUpdate()">
+            </div>
+
+            <div class="form-group mb-2">
+            <label for="costs" class="col-7 text-right tLab">Program Costs</label>
+            <input type="number" class="form-control col-4" id="costs" aria-describedby="costs" value="2000" min=0 step=100  style="height: 2rem" onchange="progCost=$(this).val(); statUpdate()">
+            </div>
+
+            <div class="form-group mb-2">
+            <!-- <label for="enrolledTotal">Projected Training Enrollment</label>
+            <input type="text" class="form-control col-3" id="enrolledTotal" aria-describedby="enrolledTotal" placeholder="0" readonly> -->
+
+            <label for="costTotal" class="col-7 text-right tLab">Projected Costs</label>
+            <input type="number" class="form-control col-4" id="costTotal" aria-describedby="costTotal" placeholder="0" readonly style="height:2rem">
+          </div>
+        </div>
+          </form>
+        <!-- </div> -->
+    </div>
+
+  </body>
+
+
+
+  <!-- Script imports -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="js/moment.js"></script>
+  <script type="text/javascript" src="js/randomDeidentifiedData.json"></script>
+  <script src="js/main.js"></script>
+
+</html>

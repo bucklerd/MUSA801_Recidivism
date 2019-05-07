@@ -1,0 +1,148 @@
+body{
+  height: 100%;
+  min-height: 100%;
+  overflow-y: hidden;
+  background-color: lightgrey;
+}
+
+main{
+}
+
+label{
+  margin-bottom: 0rem;
+  margin-left: 0.75rem;
+  font-weight: bold;
+}
+
+#header{
+  top: 0;
+  left:0
+  position: absolute;
+  height: 8vh;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: .5rem;
+  margin: auto;
+}
+
+.tLab{
+  text-align: left !important;
+  height: 1.75rem;
+  justify-content: space-around;
+  margin-left: 0;
+  width: 13rem;
+  margin: auto;
+}
+
+.center h1{
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 1.5;
+}
+
+#controlPanel{
+  display: inline;
+}
+
+.form-group{
+  margin-bottom: 0.1rem;
+}
+
+.exoProfile{
+  margin-right: 0rem;
+}
+
+#inmateDtls{
+  overflow-x: hidden;
+  overflow-y: auto;
+  bottom: inherit;
+}
+
+.dataTables_scrollBody thead tr[role="row"]{
+    visibility: collapse !important;
+}
+
+#inmateTable{
+  top: 8vh;
+  bottom:0;
+  width: 40vw;
+  position: absolute;
+  border: 1px solid black;
+  border-radius: 1rem;
+  background-color: darkgrey;
+  margin: 1rem;
+}
+
+
+
+#inmateDetails{
+  top: 8vh;
+  height: 57vh;
+  right: 0;
+  width: 57vw;
+  position: absolute;
+  border: 1px solid black;
+  background-color: darkgrey;
+  margin: 1rem;
+  border-radius: 1rem;
+}
+
+#selectedTrack{
+  bottom: 0;
+  height: 28vh;
+  right: 0;
+  width: 57vw;
+  position: absolute;
+  border: 1px solid black;
+  background-color: darkgrey;
+  margin: 1rem;
+  border-radius: 1rem;
+}
+
+.background {
+  background-color: #ffffff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.header{
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: .25rem;
+  text-align: left;
+}
+
+.container{
+  border-color: black;
+  border-radius: 10px;
+  border-width: thick;
+  color: #ffffff;
+  background-color: #aaa;
+  height: 100%;
+  min-height: 100%;
+  margin-bottom: 0px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+}
+
+.fill{
+  min-height: 100%;
+  height:100%;
+
+}
+
+
+@media (min-width: 1200px) {
+    .container{
+        max-width: 800px;
+    }
+}
