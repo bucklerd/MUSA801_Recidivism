@@ -11,12 +11,18 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <title>Guilford County Recidivism Prediction Project</title>
+    <title>Recidivism Prediction Project: Guilford County </title>
   </head>
 
   <body>
     <div id="header">
-      <h2 class = "center h1"> Guilford County: Recidivism Prediction </h2>
+      <span>
+        <h2 style="display:inline"> Recidivism Prediction Project: Guilford County </h2>
+        <a href="https://pennmusa.github.io/MUSA_801.io/"><img src="images/musa_logo.png" style="float:right" height="100%" ></a>
+        <a href="https://pennmusa.github.io/MUSA_801.io/" style="float:right; padding: .5rem">
+          Return to MUSA 801 Projects Page
+        </a>
+      </span>
     </div>
     <div id="inmateTable">
       <div class="container-fluid">
@@ -66,9 +72,12 @@
     <div id="inmateDetails">
       <div class="container-fluid" style="height: inherit; position:relative">
         <h4 style="display: inline">Ex-offender Profile</h4>
-        <button type="button" id="dtlClose" class="close" aria-label="Close" onclick="$('#inmateDtls').hide(); $('#dtlClose').hide()">
+        <button type="button" id="dtlClose" class="close" aria-label="Close" onclick="$('#inmateDtls').hide(); $('#dtlClose').hide(); $('#description').show()">
           <span aria-hidden="true">&times;</span>
         </button>
+        <div id="description" class="row justify-content-center"
+          <h6> Select "Details" from the table to the left to view.</h6>
+        </div>
         <form id="inmateDtls">
           <div class="form-row">
             <!-- <h6>Demographics</h6> -->

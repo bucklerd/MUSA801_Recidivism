@@ -97,6 +97,7 @@ var fields = ["name", "releaseDate", "race", "ethnicity", "sex", "age", "mostSer
 
 
 var buildDetail = () => {
+  $('#description').hide();
   $('#inmateDtls').hide();
   _.each(fields, function(field){
     $('#' + field).val(eval('oneRecord.' + field));
@@ -104,9 +105,6 @@ var buildDetail = () => {
   $('#inmateDtls').show();
 };
 
-var selects = (checkboxElem) => {
-  if(checkboxElem.checked) {return true}
-};
 
 var statUpdate = () => {
   runningTotal = progCost * accepted.length;
