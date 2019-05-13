@@ -18,9 +18,12 @@
     <div id="header">
       <span>
         <h2 style="display:inline"> Recidivism Prediction Project: Guilford County </h2>
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#aboutModal" style="margin-left: 3rem;">
+          About
+        </button>
         <a href="https://pennmusa.github.io/MUSA_801.io/"><img src="images/musa_logo.png" style="float:right" height="100%" ></a>
         <a href="https://pennmusa.github.io/MUSA_801.io/" style="float:right; padding: .5rem">
-          Return to MUSA 801 Projects Page
+          Return to MUSA801 Projects Page
         </a>
       </span>
     </div>
@@ -238,6 +241,43 @@
 
   </body>
 
+  <!-- Modal -->
+  <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="aboutModal">About the project</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>This project was produced as part of the University of
+            Pennsylvania Master of Urban Spatial Analytics Spring 2019 Practicum (MUSA 801).
+          </p>
+          <p> For more information about this project, check out the complete markdown
+            <a href="https://bucklerd.github.io/MUSA801_Recidivism_Markdown/"> here.</a>
+          </p>
+          <hr>
+          <p> As a sample of our data analysis, click a button below to view a map.</p>
+          <div class="row justify-content-around">
+            <button type="button" class="btn btn-primary" id="recidRatopBtn" onclick="">
+              Recidivism Ratio
+            </button>
+            <button type="button" class="btn btn-primary" id="costTracts" onclick="">
+              Incarceration Costs
+            </button>
+          </div>
+          <div id="map">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   <!-- Script imports -->

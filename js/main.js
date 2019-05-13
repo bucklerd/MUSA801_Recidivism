@@ -70,6 +70,15 @@ $(document).ready(function() {
   $('#dtlClose').hide();
   //$('#selectedTable').hide();
   table();
+  $('#recidRatopBtn').on('click', function(){
+    console.log("recidRatopBtn");
+
+  });
+  $('#costTracts').on('click', function(){
+    console.log("costTracts");
+
+  });
+
 } );
 
 var selected = () => {
