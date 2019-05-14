@@ -25,6 +25,12 @@ label{
   margin: auto;
 }
 
+#map{
+  width: 85%;
+  height:20rem;
+  margin: 0 .25rem;
+}
+
 .tLab{
   text-align: left !important;
   height: 1.75rem;
