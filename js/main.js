@@ -44,7 +44,7 @@ $('#exOffenderTable tbody').on( 'click', '.tally', function () {
    tempRec = $('#exOffenderTable').DataTable().row( $(this).parents('tr') ).data();
   if($(this).is(":checked")) {
     console.log("checked");
-    accepted.push(tempRec[0]);
+    accepted.push(tempRec);
     runningTotal = runningTotal + progCost;
 
   } else {
@@ -68,6 +68,7 @@ $('#updateTable').on('click', function(){
 
   });
   $('#exOffenderTable').DataTable().destroy();
+  $('#exOffenderTable tbody').remove()
   table();
   accepted=[];
 });
