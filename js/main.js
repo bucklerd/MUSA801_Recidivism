@@ -44,7 +44,7 @@ $('#exOffenderTable tbody').on( 'click', '.tally', function () {
    tempRec = $('#exOffenderTable').DataTable().row( $(this).parents('tr') ).data();
   if($(this).is(":checked")) {
     console.log("checked");
-    accepted.push(tempRec);
+    accepted.push(tempRec[0]);
     runningTotal = runningTotal + progCost;
 
   } else {
