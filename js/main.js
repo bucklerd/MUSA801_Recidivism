@@ -172,7 +172,7 @@ var buildDetail = () => {
   $('#description').hide();
   $('#inmateDtls').hide();
   _.each(fields, function(field){
-    $('#' + field).val(eval('oneRecord.' + field.toLower()));
+    $('#' + field).val(eval('oneRecord.' + field));
   });
   $('#inmateDtls').show();
 };
